@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="action-bar">
+
+        <span id="saveAlbum" class="material-symbols-outlined">save</span>
+        <span id="addAlbum" class="material-symbols-outlined">add</span>
+        <span id="deleteAlbum" class="material-symbols-outlined">delete</span>
+        <span id="importAlbum" class="material-symbols-outlined">upload</span>
+        <span id="exportAlbum" class="material-symbols-outlined">download</span>
+        <span id="playAlbum" class="material-symbols-outlined">play_arrow</span>
+
+        <select id="selectAlbum">
+            <!-- select give dropdown -->
+            <option value="-1">Select an Album</option>   <!-- '-1' represent no one is selected -->
+        </select>
+
+        <input type="file" multiple="false" id="uploadFile" />
+
+    </div>
+
+    <div id="content">
+
+        <div id="content-list">
+
+            <div id="new-slide">
+                New Slide
+            </div>
+
+            <div id="slide-list">
+
+            </div>
+
+        </div>
+
+        <div id="content-details">
+
+            <div id="create-slide">
+
+                <div>
+                    <input id="txtSlideImage" type="text" placeholder="Image" />
+                </div>
+
+                <div>
+                    <input id="txtSlideTitle" type="text" placeholder="Title" />
+                </div>
+
+                <div>
+                    <textarea id="txtSlideDesc" cols="30" rows="10" placeholder="Description"></textarea>
+                </div>
+
+                <div>
+                    <button id="btnSaveSlide">Save slide</button>
+                </div>
+
+            </div>
+
+            <div id="show-slide">
+                <!--Main content on right side template -->
+                <div class="slide-in-view">
+                    <div class="title"></div>
+                    <div class="slide-content">
+                        <div class="desc"></div>
+                        <img src="" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="content-details-overlay">
+            <div id="text">Either create a new slide or select a slide</div>
+        </div>
+
+    </div>
+
+    <div id="overlay">
+        <div id="text">Please select an Album</div>
+    </div>
+
+    <!-- <div id="play-overlay">
+        <div id="text">Playing the album...</div>
+    </div> -->
+
+    <template id="allTemplates">
+
+        //New album dropdown template
+        <option purpose="new-album"></option>
+
+        //New slide on left side template
+        <div class="slide">
+            <div class="title">Gshahahah</div>
+
+            <div class="slide-content">
+                <div class="desc"></div>
+                <img src="" />
+            </div>
+        </div>
+
+        //Main content on right side template
+        <div class="slide-in-view">
+            <div class="slide-header">
+                <div class="title"></div>
+                <span purpose="edit" class="material-symbols-outlined">edit</span>
+                <span purpose="delete" class="material-symbols-outlined">delete</span>
+            </div>
+            <div class="slide-content">
+                <div class="desc"></div>
+                <img src="" />
+            </div>
+        </div>
+
+    </template>
+
+    <script type="text/javascript" src="Album.js"></script>
+
+</body>
+
+</html>

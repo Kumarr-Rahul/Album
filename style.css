@@ -1,0 +1,383 @@
+body {
+    margin: 0%;
+    /* by default there are some marging and padding */
+    padding: 0%;
+
+}
+
+* {
+    /*  '*' means apply on ALL */
+    box-sizing: border-box;
+    /* When are giving height(suppose 100px), by default it take more than 100px(say 110px), border width and padding space.For exact 100px use border box */
+}
+
+#action-bar {
+    background-color: rgb(0, 71, 74);
+    height: 6vh;
+    /* 6% OF whole page */
+    display: flex;
+}
+
+#action-bar span {
+    border: 1px solid rgb(89, 189, 193);
+    border-radius: 3px;
+    margin: 6px 8px;
+    /*first px for top bottom margin and 2nd for left right*/
+    padding: 3px;
+    cursor: pointer;
+    color: rgb(120, 251, 255);
+}
+
+#action-bar span:hover {
+    /* background-color: rgb(0, 0, 0); */
+    background-color: #E63A57;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+
+}
+
+#action-bar select {
+    background-color: rgb(173, 251, 255);
+    margin: 7px;
+    padding: 4px;
+    font-family: Helvetica;
+
+}
+
+#action-bar select:hover {
+    /* background-color: rgb(4, 45, 47); */
+    background-color: #E63A57;
+    color: white;
+    cursor: pointer;
+}
+
+#action-bar select option {
+    background-color: rgb(4, 45, 47);
+    color: white;
+}
+
+#content {
+    /* background-color: rgb(4, 45, 47); */
+    height: 94vh;
+    display: flex;
+    /*allow content side by side */
+}
+
+#content-list {
+    background-color: rgb(0, 119, 123);
+    border: 1px solid rgb(97, 184, 187);
+    width: 15vw;
+    padding: 5px;
+}
+
+#content-details {
+    background-color: rgb(0, 140, 145);
+    border: 1px solid rgb(97, 184, 187);
+    width: 85vw;
+}
+
+#overlay {
+    /* can't interact with bottom items */
+    position: fixed;
+    /*apna top left browser ka top left se add kar leta hai, it is like fixed header in wordpress. While scrolling it will be fixed */
+    height: 94vh;
+    width: 100vw;
+    top: 6vh;
+    left: 0%;
+    background-color: rgb(132, 125, 255);
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 2;
+    /*3D uppar niche aata hai, z=1 means screen level */
+    /* display:none; */
+}
+
+#text {
+
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-family: Helvetica;
+    padding: 5px;
+    position: absolute;
+    /*apna top left apne parent ke top left se add karta hai, yeh parent ke sath juda hua hai */
+    border: 1px solid rgb(255, 255, 255);
+    top: 50%;
+    /* yeh apna corner 50% top and 50% left le aaya. Abhi text area ka corner centre pe align hai, we have align miidle part with parent(here overlay is parent)*/
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    /* apna beech wala parent ke sath align karne ke liye*/
+
+}
+
+#new-slide {
+    background-color: #E63A57;
+    /* background-color: #02959a; */
+    height: 110px;
+    border-radius: 5px;
+
+    /* to align text in centre vertical */
+    text-align: center;
+
+    /* to align text in centre horizontally */
+    line-height: 100px;
+    vertical-align: middle;
+
+    /* Text color */
+    color: white;
+
+    font-family: Helvetica;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: large;
+    margin: 5px;
+}
+
+#new-slide:hover {
+    transform: scale(1.02);
+}
+
+.slide {
+
+    height: 120px;
+    width: 95%;
+
+    background-color: #E63A57;
+    /* background-color: #02959a; */
+    border-radius: 5px;
+
+    /* Text color */
+    color: white;
+
+    font-family: Helvetica;
+    cursor: pointer;
+    font-size: large;
+    margin: 5px 2px;
+    /*slide ke beech wala gape, 5px means top bottom margin 2px means left right margin */
+}
+
+.slide:hover {
+    border: 1px solid white;
+}
+
+.slide .title {
+    height: 20%;
+    border-bottom: 2px solid white;
+
+    text-align: center;
+}
+
+.slide .slide-content {
+    height: 80%;
+    width: 100%;
+    display: flex;
+
+    padding: 7px;
+}
+
+.slide-content .desc {
+    height: 100%;
+    width: 50%;
+
+    background-color: #ff6780;
+    /* background-color: #018186; */
+    border-radius: 5px;
+
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+.slide-content img {
+    height: 100%;
+    width: 50%;
+}
+
+/* Scroll bar */
+#slide-list {
+    height: calc(94vh - 140px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* content jyada ah jaye to dropdown ah jaye */
+}
+
+/* Overlay to hide content deatils */
+
+#content-details-overlay {
+    position: fixed;
+    height: 94vh;
+    width: 100vw;
+    top: 6vh;
+    left: 15vw;
+    background-color: #3e1f1f;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+#create-Slide {
+    /* overlay */
+    display: none;
+    padding: 10px;
+    flex-direction: row;
+}
+
+#create-Slide div {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    /* for button align in centre */
+}
+
+#create-slide textarea {
+    width: 70%;
+    height: 50vh;
+    background-color: #97fcff;
+    border-radius: 8px;
+
+    /* for text inside placeholder */
+    font-family: Helvetica;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #E63A57;
+}
+
+#create-slide input {
+    width: 70%;
+    height: 7vh;
+    background-color: #97fcff;
+    border-radius: 8px;
+
+    /* for text inside placeholder */
+    font-family: Helvetica;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #E63A57;
+}
+
+#create-slide button {
+    background-color: #E63A57;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+#show-Slide {
+    /* overlay */
+    display: none;
+}
+
+
+/* Main Content--------------------------------------------------------------------------------------------- */
+
+/* Header styling */
+.slide-in-view {
+
+    height: 98%;
+    width: 99%;
+
+    /* background-color: #E63A57; */
+    background-color: #006669;
+    border-radius: 5px;
+
+    /* Text color */
+    color: white;
+
+    font-family: Helvetica;
+    cursor: pointer;
+    font-size: large;
+    margin: 5px;
+    /*slide ke beech wala gape, 5px means top bottom margin 2px means left right margin */
+}
+
+.slide-in-view .slide-header{
+    height: 10%;
+    border-bottom: 2px solid white;
+    display: flex;
+}
+
+.slide-in-view .slide-header .title {
+    width : 98%;
+    text-align: center;
+    font-size: 40px;
+
+    text-align: center;
+
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.slide-in-view .slide-header span{
+    padding: 15px 5px;
+}
+
+.slide-in-view .slide-header span:hover{
+    color: #E63A57;
+    cursor: pointer;
+}
+
+/* Content area below header styling */
+.slide-in-view .slide-content {
+    height: 90%;
+    width: 100%;
+    display: flex;
+
+    padding: 7px;
+}
+
+.slide-in-view .slide-content .desc {
+    height: 100%;
+    width: 50%;
+
+    /* background-color: #ff6780; */
+    background-color: #008c91;
+    border-radius: 5px;
+
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+}
+
+.slide-in-view .slide-content img {
+    height: 100%;
+    width: 50%;
+}
+
+#uploadFile {
+    display: none;
+}
+
+/* #play-overlay {
+    
+    position: fixed;
+    height: 94vh;
+    width: 100vw;
+    top: 6vh;
+    left: 0%;
+    background-color: rgb(132, 125, 255);
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 3;
+  
+    display:none;
+} */
+
+/* #play-overlay #text {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Helvetica;
+    padding: 5px;
+    position: absolute;
+   
+    top: -2%;
+ 
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    text-decoration: underline;
+} */
